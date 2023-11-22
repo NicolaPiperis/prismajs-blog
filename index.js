@@ -15,4 +15,59 @@ function create () {
         })
         .catch((error) => console.error(error));
 };
-create();
+
+
+function read () {
+    prisma.post
+    .findFirst({
+        where: {
+            slug: "primo-post"
+        }
+    })
+    .then((p) => {
+        console.log("test find", p);
+    })
+    .catch((error) => console.error(error));
+};
+
+
+function readAll () {
+    prisma.post
+        .findMany({
+        })
+        .then((p) => {
+            console.log("test find all", p)
+        })
+        .catch((error) => console.error(error));
+};
+
+
+function update () {
+    prisma.post
+        .update({
+            where: {
+                id: 2
+            },
+            data: {
+                title: "secondo post",
+                slug: "secondo-post"
+            }
+        })
+        .then((p) => {
+            console.log("test update", p)
+        })
+        .catch((error) => console.error(error));
+};
+
+function deletePost () {
+    prisma.post
+        .delete({
+            where: {
+                id: 3
+            }
+        })
+        .then((p) => {
+            console.log("test delate", p);
+        })
+};
+
