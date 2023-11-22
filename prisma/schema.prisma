@@ -12,9 +12,9 @@ datasource db {
 
 model Post{
   id          Int       @id @default(autoincrement())
-  title       String?   @db.VarChar(100)
+  title       String   @db.VarChar(100)
   slug        String    @db.VarChar(100)
-  image       String    @db.Text
+  image       String?    @db.Text
   content     String    @db.Text
   published   Boolean   @default(true)
   createdAt   DateTime  @default(now())
